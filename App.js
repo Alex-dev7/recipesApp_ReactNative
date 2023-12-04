@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 import CategoriesScreen from './screens/CategoriesScreen';
+import RecipeOverview from './screens/RecipeOverview';
 
 export default function App() {
   return (
@@ -15,6 +15,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Recipes" component={CategoriesScreen}/>
+          <Stack.Screen name="Recipe Overview" component={RecipeOverview}/>
         </Stack.Navigator>
       </NavigationContainer>
     </>
