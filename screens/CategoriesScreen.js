@@ -7,7 +7,9 @@ function CategoriesScreen({navigation}) {
 
     function renderCategoryItem(itemData) {
         function pressHandler() {
-            navigation.navigate('Recipe Overview')
+            navigation.navigate('Recipe Overview', {
+                categoryId: itemData.item.id,
+            })
         }
 
 
