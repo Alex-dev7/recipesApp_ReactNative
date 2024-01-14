@@ -11,11 +11,21 @@ import RecipeOverview from './screens/RecipeOverview';
 export default function App() {
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Recipes" component={CategoriesScreen}/>
-          <Stack.Screen name="Recipe Overview" component={RecipeOverview}/>
+        <Stack.Navigator screenOptions={{
+                      headerStyle: { backgroundColor: "#068451ff" },
+                      headerTintColor: "white",
+                      contentStyle: { backgroundColor: "#f2f2f2" },
+        }}>
+          <Stack.Screen
+            name="Recipes"
+            component={CategoriesScreen}
+            options={{
+              title: "All Categories",
+            }}
+          />
+          <Stack.Screen name="Recipe Overview" component={RecipeOverview} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
