@@ -1,14 +1,25 @@
+import { useLayoutEffect } from "react"
 import { View, FlatList, StyleSheet } from "react-native"
-import { MEALS } from "../data/dummy-data"
+import { MEALS, CATEGORIES } from "../data/dummy-data"
 import { CardAnimationContext } from "@react-navigation/stack"
 import MealItem from "../components/MealItem"
 
-function RecipeOverview({route}) {
+function RecipeOverview({route, navigation}) {
     const catId = route.params.categoryId
 
     const dsiplayedMeals = MEALS.filter((mealItem) => {
         return mealItem.categoryIds.indexOf(catId) >= 0
     })
+
+    useLayoutEffect(() => {
+        const categoryTitle = CATEGORIES.find((category) => category.id === catId).title
+
+        navigation.setOptions({
+            title: categoryTitle,
+        })        
+    }, [catId, navigation])
+
+
 
     function renedeMealItem(itemData) {
         const mealItemProps = {
